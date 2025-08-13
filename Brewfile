@@ -33,5 +33,10 @@ brew "golang-migrate"         # Database migrations
 
 # Code quality and utilities
 brew "jsonlint"              # JSON validator
+brew "shellcheck"            # Shell script linter
 brew "wget"                  # Download utility
 brew "coreutils"             # GNU core utilities
+
+# Additional development utilities
+brew "watch"                 # Execute commands periodically
+brew "git-delta"             # Better git diff viewer

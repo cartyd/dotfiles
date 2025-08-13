@@ -35,6 +35,10 @@ if [ -f "$DOTFILES_DIR/.zprofile" ]; then
     create_symlink "$DOTFILES_DIR/.zprofile" "$HOME_DIR/.zprofile"
 fi
 
+if [ -f "$DOTFILES_DIR/.gitconfig" ]; then
+    create_symlink "$DOTFILES_DIR/.gitconfig" "$HOME_DIR/.gitconfig"
+fi
+
 # Install Homebrew packages if Brewfile exists
 if [ -f "$DOTFILES_DIR/Brewfile" ]; then
     echo "Installing Homebrew packages from Brewfile..."

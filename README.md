@@ -65,12 +65,15 @@ Once installed, you'll have access to these convenient aliases:
 **Development tools:**
 - `brewsync` - Install/update all development tools from Brewfile
 - `brewcheck` - Check if all Brewfile packages are installed
+- `nodesetup` - Install essential global npm packages for TypeScript development
 
 ## Files included
 
 - `.zshrc` - Main zsh configuration with development aliases and modern tools
 - `.zprofile` - zsh profile settings
+- `.gitconfig` - Git configuration with useful aliases and settings
 - `Brewfile` - Development-focused Homebrew packages (Node.js, Go, Python, CLI tools)
+- `install-node-globals.sh` - Script to install essential global npm packages for TypeScript
 - `setup.sh` - Automated setup script that installs dotfiles and Homebrew packages
 - `README.md` - This documentation
 

@@ -140,6 +140,9 @@ alias dotpush='cd ~/dotfiles && git add . && git commit -m "Update dotfiles" && 
 alias brewsync='cd ~/dotfiles && brew bundle install && echo "✅ Development tools synced!"'
 alias brewcheck='cd ~/dotfiles && brew bundle check'
 
+# Node.js global packages
+alias nodesetup='cd ~/dotfiles && ./install-node-globals.sh'
+
 # Traditional command fallbacks (if you need them)
 alias catoriginal="/bin/cat"
 alias greporiginal="/usr/bin/grep"

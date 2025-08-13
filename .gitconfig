@@ -1,0 +1,42 @@
+[user]
+	name = Dave
+	email = 9923782+cartyd@users.noreply.github.com
+
+[core]
+	editor = code --wait
+	autocrlf = input
+
+[init]
+	defaultBranch = main
+
+[push]
+	default = current
+	autoSetupRemote = true
+
+[pull]
+	rebase = true
+
+[alias]
+	# Quick shortcuts
+	st = status
+	co = checkout
+	br = branch
+	cm = commit -m
+	ca = commit --amend
+	
+	# Useful logs
+	log1 = log --oneline --graph --decorate --all
+	logp = log --oneline --graph --decorate --all -10
+	
+	# Show changes
+	diff-staged = diff --staged
+	show-files = show --name-only
+	
+	# Branch management
+	cleanup = "!git branch --merged | grep -v '\*\|main\|master' | xargs -n 1 git branch -d"
+
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
