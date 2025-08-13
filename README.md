@@ -8,7 +8,7 @@ My personal zsh configuration files for macOS.
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/dotfiles.git ~/dotfiles
+   git clone https://github.com/cartyd/dotfiles.git ~/dotfiles
    ```
 
 2. Run the setup script:
@@ -26,25 +26,47 @@ My personal zsh configuration files for macOS.
 
 After making changes to any dotfile on one machine:
 
-1. Commit and push changes:
-   ```bash
-   cd ~/dotfiles
-   git add .
-   git commit -m "Update configuration"
-   git push origin main
-   ```
+**Option 1: Use the convenient alias (recommended):**
+```bash
+dotpush
+```
 
-2. On other machines, pull the latest changes:
-   ```bash
-   cd ~/dotfiles
-   git pull origin main
-   ```
+**Option 2: Manual approach:**
+```bash
+cd ~/dotfiles
+git add .
+git commit -m "Update configuration"
+git push origin main
+```
+
+### Syncing changes on other machines
+
+**Option 1: Use the convenient alias (recommended):**
+```bash
+dotsync
+```
+
+**Option 2: Manual approach:**
+```bash
+cd ~/dotfiles
+git pull origin main
+```
+
+## Helpful Aliases
+
+Once installed, you'll have access to these convenient dotfiles management aliases:
+
+- `dotfiles` - Navigate to the dotfiles directory
+- `dotsync` - Pull the latest changes from GitHub
+- `dotpush` - Add, commit, and push your changes to GitHub
+- `reload` - Reload your zsh configuration
 
 ## Files included
 
-- `.zshrc` - Main zsh configuration
+- `.zshrc` - Main zsh configuration with development aliases and modern tools
 - `.zprofile` - zsh profile settings
 - `setup.sh` - Automated setup script
+- `README.md` - This documentation
 
 ## Notes
 
