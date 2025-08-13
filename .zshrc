@@ -131,6 +131,11 @@ alias myip='curl http://ipecho.net/plain; echo'
 alias weather='curl wttr.in'
 alias ports='lsof -i -P -n | grep LISTEN'
 
+# Dotfiles management
+alias dotfiles='cd ~/dotfiles'
+alias dotsync='cd ~/dotfiles && git pull origin main && echo "✅ Dotfiles synced!"'
+alias dotpush='cd ~/dotfiles && git add . && git commit -m "Update dotfiles" && git push origin main'
+
 # Traditional command fallbacks (if you need them)
 alias catoriginal="/bin/cat"
 alias greporiginal="/usr/bin/grep"
