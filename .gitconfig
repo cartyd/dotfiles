@@ -33,7 +33,7 @@
 	show-files = show --name-only
 	
 	# Branch management
-	cleanup = "!git branch --merged | grep -v '\*\|main\|master' | xargs -n 1 git branch -d"
+	cleanup = !git branch --merged | grep -v main | grep -v master | xargs -n 1 git branch -d
 
 [filter "lfs"]
 	required = true
