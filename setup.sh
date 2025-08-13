@@ -35,5 +35,17 @@ if [ -f "$DOTFILES_DIR/.zprofile" ]; then
     create_symlink "$DOTFILES_DIR/.zprofile" "$HOME_DIR/.zprofile"
 fi
 
+# Install Homebrew packages if Brewfile exists
+if [ -f "$DOTFILES_DIR/Brewfile" ]; then
+    echo "Installing Homebrew packages from Brewfile..."
+    if command -v brew &> /dev/null; then
+        brew bundle install --file="$DOTFILES_DIR/Brewfile"
+        echo "✅ Homebrew packages installed!"
+    else
+        echo "⚠️  Homebrew not found. Please install Homebrew first:"
+        echo "   /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+    fi
+fi
+
 echo "Dotfiles setup complete!"
 echo "You may need to restart your terminal or run 'source ~/.zshrc' to apply changes."

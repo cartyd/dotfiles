@@ -54,18 +54,24 @@ git pull origin main
 
 ## Helpful Aliases
 
-Once installed, you'll have access to these convenient dotfiles management aliases:
+Once installed, you'll have access to these convenient aliases:
 
+**Dotfiles management:**
 - `dotfiles` - Navigate to the dotfiles directory
 - `dotsync` - Pull the latest changes from GitHub
 - `dotpush` - Add, commit, and push your changes to GitHub
 - `reload` - Reload your zsh configuration
 
+**Development tools:**
+- `brewsync` - Install/update all development tools from Brewfile
+- `brewcheck` - Check if all Brewfile packages are installed
+
 ## Files included
 
 - `.zshrc` - Main zsh configuration with development aliases and modern tools
 - `.zprofile` - zsh profile settings
-- `setup.sh` - Automated setup script
+- `Brewfile` - Development-focused Homebrew packages (Node.js, Go, Python, CLI tools)
+- `setup.sh` - Automated setup script that installs dotfiles and Homebrew packages
 - `README.md` - This documentation
 
 ## Notes

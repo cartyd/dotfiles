@@ -136,6 +136,10 @@ alias dotfiles='cd ~/dotfiles'
 alias dotsync='cd ~/dotfiles && git pull origin main && echo "✅ Dotfiles synced!"'
 alias dotpush='cd ~/dotfiles && git add . && git commit -m "Update dotfiles" && git push origin main'
 
+# Brewfile management (development tools)
+alias brewsync='cd ~/dotfiles && brew bundle install && echo "✅ Development tools synced!"'
+alias brewcheck='cd ~/dotfiles && brew bundle check'
+
 # Traditional command fallbacks (if you need them)
 alias catoriginal="/bin/cat"
 alias greporiginal="/usr/bin/grep"
