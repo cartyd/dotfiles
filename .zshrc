@@ -140,12 +140,16 @@ alias dotfiles='cd ~/dotfiles'
 alias dotsync='cd ~/dotfiles && git pull origin main && echo "✅ Dotfiles synced!"'
 alias dotpush='cd ~/dotfiles && git add . && git commit -m "Update dotfiles" && git push origin main'
 
-# Backup aliases (OneStat drive)
-alias backup-all='rsync -avh --progress --exclude="node_modules" --exclude="*.log" --exclude=".DS_Store" --exclude="dev/go" ~/dev ~/dotfiles /Volumes/OneStat/backup-$(date +%Y%m%d)/ && echo "✅ Backup completed to OneStat!"'
-alias backup-dev='rsync -avh --progress --exclude="node_modules" --exclude="*.log" --exclude=".DS_Store" --exclude="go" ~/dev /Volumes/OneStat/backup-$(date +%Y%m%d)/ && echo "✅ Dev backup completed!"'
-alias backup-dots='rsync -avh ~/dotfiles /Volumes/OneStat/backup-$(date +%Y%m%d)/ && echo "✅ Dotfiles backup completed!"'
-alias backup-node='rsync -avh --progress --exclude="node_modules" --exclude="*.log" --exclude=".DS_Store" ~/dev/node /Volumes/OneStat/backup-$(date +%Y%m%d)/ && echo "✅ Node.js projects backup completed!"'
-alias backup-python='rsync -avh --progress --exclude="__pycache__" --exclude="*.pyc" --exclude="*.log" ~/dev/python /Volumes/OneStat/backup-$(date +%Y%m%d)/ && echo "✅ Python projects backup completed!"'
+# Backup aliases (OneStat drive) - Hard-link snapshots for efficiency
+alias backup-all='mkdir -p /Volumes/OneStat/snapshots && rsync -avh --progress --delete --link-dest=/Volumes/OneStat/snapshots/current --exclude="node_modules" --exclude="*.log" --exclude=".DS_Store" --exclude="dev/go" ~/dev ~/dotfiles /Volumes/OneStat/snapshots/backup-$(date +%Y%m%d)/ && ln -sfn backup-$(date +%Y%m%d) /Volumes/OneStat/snapshots/current && echo "✅ Snapshot backup completed to OneStat!"'
+alias backup-dev='mkdir -p /Volumes/OneStat/snapshots && rsync -avh --progress --delete --link-dest=/Volumes/OneStat/snapshots/current --exclude="node_modules" --exclude="*.log" --exclude=".DS_Store" --exclude="go" ~/dev /Volumes/OneStat/snapshots/backup-$(date +%Y%m%d)/ && ln -sfn backup-$(date +%Y%m%d) /Volumes/OneStat/snapshots/current && echo "✅ Dev snapshot backup completed!"'
+alias backup-dots='mkdir -p /Volumes/OneStat/snapshots && rsync -avh --delete --link-dest=/Volumes/OneStat/snapshots/current ~/dotfiles /Volumes/OneStat/snapshots/backup-$(date +%Y%m%d)/ && ln -sfn backup-$(date +%Y%m%d) /Volumes/OneStat/snapshots/current && echo "✅ Dotfiles snapshot backup completed!"'
+alias backup-node='mkdir -p /Volumes/OneStat/snapshots && rsync -avh --progress --delete --link-dest=/Volumes/OneStat/snapshots/current --exclude="node_modules" --exclude="*.log" --exclude=".DS_Store" ~/dev/node /Volumes/OneStat/snapshots/backup-$(date +%Y%m%d)/ && ln -sfn backup-$(date +%Y%m%d) /Volumes/OneStat/snapshots/current && echo "✅ Node.js snapshot backup completed!"'
+alias backup-python='mkdir -p /Volumes/OneStat/snapshots && rsync -avh --progress --delete --link-dest=/Volumes/OneStat/snapshots/current --exclude="__pycache__" --exclude="*.pyc" --exclude="*.log" ~/dev/python /Volumes/OneStat/snapshots/backup-$(date +%Y%m%d)/ && ln -sfn backup-$(date +%Y%m%d) /Volumes/OneStat/snapshots/current && echo "✅ Python snapshot backup completed!"'
+
+# Backup utilities
+alias backup-list='ls -la /Volumes/OneStat/snapshots/ | grep backup && echo "\n🔗 Current points to: $(readlink /Volumes/OneStat/snapshots/current)"'
+alias backup-clean='echo "Available backups:" && ls -la /Volumes/OneStat/snapshots/ | grep backup && echo "\nTo remove old backups, use: rm -rf /Volumes/OneStat/snapshots/backup-YYYYMMDD"'
 
 # Brewfile management (development tools)
 alias brewsync='cd ~/dotfiles && brew bundle install && echo "✅ Development tools synced!"'
