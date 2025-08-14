@@ -124,6 +124,10 @@ alias -s {cs,go,html,json,md,py,ts,txt,xml}=code # open files with filename only
 # Modern command-line tools
 alias cat="bat"                # syntax-highlighted cat
 alias grep="rg"                # faster grep with better output
+alias curl="curlie"             # modern curl with better syntax
+alias rm="trash"               # safe file deletion to trash
+alias top="btm"                # modern system monitor
+alias ps="procs"               # modern process viewer
 
 # Utility aliases
 alias reload='source ~/.zshrc'
@@ -146,6 +150,10 @@ alias nodesetup='cd ~/dotfiles && ./install-node-globals.sh'
 # Traditional command fallbacks (if you need them)
 alias catoriginal="/bin/cat"
 alias greporiginal="/usr/bin/grep"
+alias curloriginal="/usr/bin/curl"
+alias rmoriginal="/bin/rm"
+alias toporiginal="/usr/bin/top"
+alias psoriginal="/bin/ps"
 
 eval "$(zoxide init zsh)"
 eval "$(fzf --zsh)"
