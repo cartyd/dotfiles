@@ -140,6 +140,13 @@ alias dotfiles='cd ~/dotfiles'
 alias dotsync='cd ~/dotfiles && git pull origin main && echo "✅ Dotfiles synced!"'
 alias dotpush='cd ~/dotfiles && git add . && git commit -m "Update dotfiles" && git push origin main'
 
+# Backup aliases (OneStat drive)
+alias backup-all='rsync -avh --progress --exclude="node_modules" --exclude="*.log" --exclude=".DS_Store" --exclude="dev/go" ~/dev ~/dotfiles /Volumes/OneStat/backup-$(date +%Y%m%d)/ && echo "✅ Backup completed to OneStat!"'
+alias backup-dev='rsync -avh --progress --exclude="node_modules" --exclude="*.log" --exclude=".DS_Store" --exclude="go" ~/dev /Volumes/OneStat/backup-$(date +%Y%m%d)/ && echo "✅ Dev backup completed!"'
+alias backup-dots='rsync -avh ~/dotfiles /Volumes/OneStat/backup-$(date +%Y%m%d)/ && echo "✅ Dotfiles backup completed!"'
+alias backup-node='rsync -avh --progress --exclude="node_modules" --exclude="*.log" --exclude=".DS_Store" ~/dev/node /Volumes/OneStat/backup-$(date +%Y%m%d)/ && echo "✅ Node.js projects backup completed!"'
+alias backup-python='rsync -avh --progress --exclude="__pycache__" --exclude="*.pyc" --exclude="*.log" ~/dev/python /Volumes/OneStat/backup-$(date +%Y%m%d)/ && echo "✅ Python projects backup completed!"'
+
 # Brewfile management (development tools)
 alias brewsync='cd ~/dotfiles && brew bundle install && echo "✅ Development tools synced!"'
 alias brewcheck='cd ~/dotfiles && brew bundle check'
