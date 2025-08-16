@@ -25,6 +25,7 @@ brew "htop"                   # Better process viewer
 brew "bottom"                 # Modern system monitor
 brew "procs"                  # Modern process viewer
 brew "tldr"                   # Simplified man pages
+brew "glow"                   # Terminal markdown reader
 brew "jq"                     # JSON processor
 brew "yq"                     # YAML/JSON/XML processor
 brew "rsync"                  # File synchronization tool
