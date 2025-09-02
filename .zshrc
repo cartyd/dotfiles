@@ -131,6 +131,7 @@ alias ps="procs"               # modern process viewer
 
 # Utility aliases
 alias reload='source ~/.zshrc'
+alias daily='~/daily-maintenance.sh'  # Daily maintenance script
 alias myip='curl http://ipecho.net/plain; echo'
 alias weather='curl wttr.in'
 alias ports='lsof -i -P -n | grep LISTEN'
