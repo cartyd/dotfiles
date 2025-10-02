@@ -45,6 +45,9 @@ brew "shellcheck"            # Shell script linter
 brew "wget"                  # Download utility
 brew "coreutils"             # GNU core utilities
 
+# Containerization and virtualization
+brew "podman"                # Container management tool (Docker alternative)
+
 # Additional development utilities
 brew "watch"                 # Execute commands periodically
 brew "git-delta"             # Better git diff viewer
